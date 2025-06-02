@@ -13,7 +13,8 @@ const fetchParties = async () => {
     const res = await fetch(
       `https://fsa-crud-2aa9294fe819.herokuapp.com/api/2505-ftb-et-web-ft/events`
     );
-    state.partiesList = (await res.json()).data ?? [];
+    const json = await res.json();
+    state.partiesList = json.data ?? [];
     state.selectedParty = null;
     state.error = null;
     render();
